@@ -335,15 +335,15 @@
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/add_student_dialog.h",
-			"MU",
-			"EWIEGA46WW/moc_add_student_dialog.cpp",
-			null
-		],
-		[
 			"C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/admin_window.h",
 			"MU",
 			"EWIEGA46WW/moc_admin_window.cpp",
+			null
+		],
+		[
+			"C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/student_dialog.h",
+			"MU",
+			"EWIEGA46WW/moc_student_dialog.cpp",
 			null
 		]
 	],
@@ -419,17 +419,17 @@
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/add_student_dialog.cpp",
-			"MU",
-			null
-		],
-		[
 			"C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/admin_window.cpp",
 			"MU",
 			null
 		],
 		[
 			"C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/main.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/student_dialog.cpp",
 			"MU",
 			null
 		]

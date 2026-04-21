@@ -11,7 +11,7 @@ qt_add_executable(qt_project
     admin_window.cpp
     admin_window.h
     admin_window.ui
-    add_student_dialog.h add_student_dialog.cpp
+    student_dialog.h student_dialog.cpp
 )
 
 target_link_libraries(qt_project

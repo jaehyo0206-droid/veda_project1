@@ -113,27 +113,27 @@ CMakeFiles/qt_project.dir/admin_window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qt_project.dir/admin_window.cpp.s"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\admin_window.cpp -o CMakeFiles\qt_project.dir\admin_window.cpp.s
 
-CMakeFiles/qt_project.dir/add_student_dialog.cpp.obj: CMakeFiles/qt_project.dir/flags.make
-CMakeFiles/qt_project.dir/add_student_dialog.cpp.obj: CMakeFiles/qt_project.dir/includes_CXX.rsp
-CMakeFiles/qt_project.dir/add_student_dialog.cpp.obj: C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/add_student_dialog.cpp
-CMakeFiles/qt_project.dir/add_student_dialog.cpp.obj: CMakeFiles/qt_project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/qt_project.dir/add_student_dialog.cpp.obj"
-	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qt_project.dir/add_student_dialog.cpp.obj -MF CMakeFiles\qt_project.dir\add_student_dialog.cpp.obj.d -o CMakeFiles\qt_project.dir\add_student_dialog.cpp.obj -c C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\add_student_dialog.cpp
+CMakeFiles/qt_project.dir/student_dialog.cpp.obj: CMakeFiles/qt_project.dir/flags.make
+CMakeFiles/qt_project.dir/student_dialog.cpp.obj: CMakeFiles/qt_project.dir/includes_CXX.rsp
+CMakeFiles/qt_project.dir/student_dialog.cpp.obj: C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/student_dialog.cpp
+CMakeFiles/qt_project.dir/student_dialog.cpp.obj: CMakeFiles/qt_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/qt_project.dir/student_dialog.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qt_project.dir/student_dialog.cpp.obj -MF CMakeFiles\qt_project.dir\student_dialog.cpp.obj.d -o CMakeFiles\qt_project.dir\student_dialog.cpp.obj -c C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\student_dialog.cpp
 
-CMakeFiles/qt_project.dir/add_student_dialog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qt_project.dir/add_student_dialog.cpp.i"
-	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\add_student_dialog.cpp > CMakeFiles\qt_project.dir\add_student_dialog.cpp.i
+CMakeFiles/qt_project.dir/student_dialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qt_project.dir/student_dialog.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\student_dialog.cpp > CMakeFiles\qt_project.dir\student_dialog.cpp.i
 
-CMakeFiles/qt_project.dir/add_student_dialog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qt_project.dir/add_student_dialog.cpp.s"
-	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\add_student_dialog.cpp -o CMakeFiles\qt_project.dir\add_student_dialog.cpp.s
+CMakeFiles/qt_project.dir/student_dialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qt_project.dir/student_dialog.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\student_dialog.cpp -o CMakeFiles\qt_project.dir\student_dialog.cpp.s
 
 # Object files for target qt_project
 qt_project_OBJECTS = \
 "CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.obj" \
 "CMakeFiles/qt_project.dir/main.cpp.obj" \
 "CMakeFiles/qt_project.dir/admin_window.cpp.obj" \
-"CMakeFiles/qt_project.dir/add_student_dialog.cpp.obj"
+"CMakeFiles/qt_project.dir/student_dialog.cpp.obj"
 
 # External object files for target qt_project
 qt_project_EXTERNAL_OBJECTS =
@@ -141,7 +141,7 @@ qt_project_EXTERNAL_OBJECTS =
 qt_project.exe: CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.obj
 qt_project.exe: CMakeFiles/qt_project.dir/main.cpp.obj
 qt_project.exe: CMakeFiles/qt_project.dir/admin_window.cpp.obj
-qt_project.exe: CMakeFiles/qt_project.dir/add_student_dialog.cpp.obj
+qt_project.exe: CMakeFiles/qt_project.dir/student_dialog.cpp.obj
 qt_project.exe: CMakeFiles/qt_project.dir/build.make
 qt_project.exe: C:/Qt/6.11.0/mingw_64/lib/libQt6Widgets.a
 qt_project.exe: C:/Qt/6.11.0/mingw_64/lib/libQt6Gui.a

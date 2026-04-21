@@ -1,7 +1,7 @@
 #ifndef ADMIN_WINDOW_H
 #define ADMIN_WINDOW_H
 //#include "ui_adminwindow.h"
-#include "add_student_dialog.h"
+#include "student_dialog.h"
 #include <QWidget>
 #include <QStackedWidget>
 #include <QTableWidget>
@@ -57,17 +57,20 @@ private slots:
 
 private:
     void setupUI();
-    QWidget* createStudentPage();
+    QWidget* createStudentPage();   //학생 정보 관리
     QWidget* createAttendancePage();
     QWidget* createStatsPage();
-    QWidget* createAttendanceStatusPage(); // 추가
-    void loadDummyData();
+    QWidget* createAttendanceStatusPage(); //학생 출결 정보 확인
+
     void loadAttendanceData(QTableWidget *table); // 추가
     void saveData();
     void loadData();
 
     void refreshStudentTable();
     void refreshAttendanceTable();
+
+    // 공통 검색 헬퍼 함수
+    void filterTable(QTableWidget *table, QComboBox *combo, QLineEdit *edit);
 
     QMap<QString, Student> studentDatabase;
 
@@ -76,6 +79,10 @@ private:
     QTableWidget *attendanceTable; // 추가: 출결 테이블 멤버 변수
     QLineEdit *searchEdit;
     QComboBox *searchOpt;
+
+signals:
+    void logoutRequested(); // 추가
+
 protected:
     // 이벤트 필터 함수 추가
     bool eventFilter(QObject *obj, QEvent *event) override;

@@ -199,30 +199,6 @@ qt_project_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\qt_project_autogen.dir\build.make CMakeFiles/qt_project_autogen.dir/build
 .PHONY : qt_project_autogen/fast
 
-add_student_dialog.obj: add_student_dialog.cpp.obj
-.PHONY : add_student_dialog.obj
-
-# target to build an object file
-add_student_dialog.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\qt_project.dir\build.make CMakeFiles/qt_project.dir/add_student_dialog.cpp.obj
-.PHONY : add_student_dialog.cpp.obj
-
-add_student_dialog.i: add_student_dialog.cpp.i
-.PHONY : add_student_dialog.i
-
-# target to preprocess a source file
-add_student_dialog.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\qt_project.dir\build.make CMakeFiles/qt_project.dir/add_student_dialog.cpp.i
-.PHONY : add_student_dialog.cpp.i
-
-add_student_dialog.s: add_student_dialog.cpp.s
-.PHONY : add_student_dialog.s
-
-# target to generate assembly for a file
-add_student_dialog.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\qt_project.dir\build.make CMakeFiles/qt_project.dir/add_student_dialog.cpp.s
-.PHONY : add_student_dialog.cpp.s
-
 admin_window.obj: admin_window.cpp.obj
 .PHONY : admin_window.obj
 
@@ -295,6 +271,30 @@ qt_project_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\qt_project.dir\build.make CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.s
 .PHONY : qt_project_autogen/mocs_compilation.cpp.s
 
+student_dialog.obj: student_dialog.cpp.obj
+.PHONY : student_dialog.obj
+
+# target to build an object file
+student_dialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\qt_project.dir\build.make CMakeFiles/qt_project.dir/student_dialog.cpp.obj
+.PHONY : student_dialog.cpp.obj
+
+student_dialog.i: student_dialog.cpp.i
+.PHONY : student_dialog.i
+
+# target to preprocess a source file
+student_dialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\qt_project.dir\build.make CMakeFiles/qt_project.dir/student_dialog.cpp.i
+.PHONY : student_dialog.cpp.i
+
+student_dialog.s: student_dialog.cpp.s
+.PHONY : student_dialog.s
+
+# target to generate assembly for a file
+student_dialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\qt_project.dir\build.make CMakeFiles/qt_project.dir/student_dialog.cpp.s
+.PHONY : student_dialog.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -310,9 +310,6 @@ help:
 	@echo ... qt_project_autogen
 	@echo ... qt_project_autogen_timestamp_deps
 	@echo ... qt_project
-	@echo ... add_student_dialog.obj
-	@echo ... add_student_dialog.i
-	@echo ... add_student_dialog.s
 	@echo ... admin_window.obj
 	@echo ... admin_window.i
 	@echo ... admin_window.s
@@ -322,6 +319,9 @@ help:
 	@echo ... qt_project_autogen/mocs_compilation.obj
 	@echo ... qt_project_autogen/mocs_compilation.i
 	@echo ... qt_project_autogen/mocs_compilation.s
+	@echo ... student_dialog.obj
+	@echo ... student_dialog.i
+	@echo ... student_dialog.s
 .PHONY : help
 
 

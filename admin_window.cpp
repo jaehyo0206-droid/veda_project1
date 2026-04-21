@@ -38,6 +38,7 @@ void Adminwindow::setupUI()
         btn->setStyleSheet("color: white; background: transparent; text-align: left; padding: 15px; border: none;");
         sidebarLayout->addWidget(btn);
 
+        // 1. 페이지 생성 및 추가 (기존 로직 유지)
         if(i == 0)
         {
             stackedWidget->addWidget(createStudentPage());
@@ -51,9 +52,24 @@ void Adminwindow::setupUI()
             stackedWidget->addWidget(new QLabel(menus[i] + " 페이지", this));
         }
 
+        // 2. 통합된 버튼 클릭 연결 (하나만 남김)
         connect(btn, &QPushButton::clicked, [this, i]()
                 {
-                    stackedWidget->setCurrentIndex(i);
+                    if (i == 3) // 로그아웃 버튼 (인덱스 3)
+                    {
+                        QMessageBox::StandardButton reply;
+                        reply = QMessageBox::question(this, "로그아웃 확인", "정말 로그아웃 하시겠습니까?",
+                                                      QMessageBox::Yes | QMessageBox::No);
+
+                        if (reply == QMessageBox::Yes) {
+                            emit logoutRequested(); // 신호 발생
+                            //this->close();          // 현재 창 닫기
+                        }
+                    }
+                    else // 일반 페이지 이동 (0, 1, 2)
+                    {
+                        stackedWidget->setCurrentIndex(i);
+                    }
                 });
     }
     sidebarLayout->addStretch();
@@ -69,7 +85,7 @@ QWidget* Adminwindow::createStudentPage()
     QHBoxLayout *actionToolbar = new QHBoxLayout();
 
     searchOpt = new QComboBox();
-    searchOpt->addItems({"이름", "전화번호", "ID"});
+    searchOpt->addItems({"이름", "ID", "전화번호"});
     searchEdit = new QLineEdit();
     QPushButton *btnSearch = new QPushButton("조회");
 
@@ -93,6 +109,9 @@ QWidget* Adminwindow::createStudentPage()
     // 테이블 설정
     studentTable = new QTableWidget(0, 6);
     studentTable->setHorizontalHeaderLabels({"이름", "전화번호", "생년월일", "ID", "Password", "비고"});
+
+    // [수정] 아래 코드를 추가하여 편집 기능을 완전히 막습니다.
+    studentTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     // 이벤트 필터 설치
     studentTable->viewport()->installEventFilter(this);
@@ -128,32 +147,37 @@ QWidget* Adminwindow::createAttendanceStatusPage() {
 
     // 1. 조회 툴바 추가
     QHBoxLayout *searchLayout = new QHBoxLayout();
-    QLineEdit *searchEdit = new QLineEdit();
-    searchEdit->setPlaceholderText("학생명 또는 전화번호 검색...");
-    QPushButton *btnSearch = new QPushButton("🔍 조회");
+
+    // [추가] 검색 옵션 콤보박스
+    QComboBox *attSearchOpt = new QComboBox();
+    attSearchOpt->addItems({"이름", "ID", "전화번호"}); // 검색 옵션 설정
+
+    QLineEdit *attSearchEdit = new QLineEdit();
+    attSearchEdit->setPlaceholderText("검색어를 입력하세요...");
+    QPushButton *btnSearch = new QPushButton("조회");
 
     searchLayout->addWidget(new QLabel("검색:"));
-    searchLayout->addWidget(searchEdit);
+    searchLayout->addWidget(attSearchOpt); // 콤보박스 추가
+    searchLayout->addWidget(attSearchEdit);
     searchLayout->addWidget(btnSearch);
     searchLayout->addStretch();
     layout->addLayout(searchLayout);
 
-    // 2. 테이블 구성 (컬럼을 10개로 증가)
-    // 순서: 학생명, 전화번호, 진도/전체, 출석, 지각, 조퇴, 외출, 결석, 출석률, 진행률
-    attendanceTable = new QTableWidget(0, 10);
-    attendanceTable->setHorizontalHeaderLabels({"학생명", "전화번호", "진도/전체", "출석", "지각", "조퇴", "외출", "결석", "출석률", "진행률"});
+    // 2. 테이블 구성
+    attendanceTable = new QTableWidget(0, 11);
+    attendanceTable->setHorizontalHeaderLabels({"학생명", "전화번호", "ID", "진도/전체", "출석", "지각", "조퇴", "외출", "결석", "출석률", "진행률"});
     attendanceTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    attendanceTable->setEditTriggers(QAbstractItemView::NoEditTriggers); // 편집 비활성화
+
+    // [설정] 기존 스타일 유지
+    attendanceTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    attendanceTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    attendanceTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
     layout->addWidget(attendanceTable);
 
-    // 4. 조회 기능 연결 (람다 함수 사용)
-    connect(btnSearch, &QPushButton::clicked, [this, searchEdit]() {
-        QString keyword = searchEdit->text().trimmed();
-        for (int i = 0; i < attendanceTable->rowCount(); ++i) {
-            bool match = attendanceTable->item(i, 0)->text().contains(keyword, Qt::CaseInsensitive) ||
-                         attendanceTable->item(i, 1)->text().contains(keyword);
-            attendanceTable->setRowHidden(i, !match); // 조건에 맞지 않으면 행 숨기기
-        }
+    // 4. 조회 기능 연결 (공통 검색 함수 사용)
+    connect(btnSearch, &QPushButton::clicked, [this, attSearchOpt, attSearchEdit]() {
+        filterTable(attendanceTable, attSearchOpt, attSearchEdit);
     });
 
     return page;
@@ -178,17 +202,7 @@ bool Adminwindow::eventFilter(QObject *obj, QEvent *event)
 // 1. 조회 기능 (선택된 옵션과 검색어에 따라 테이블 필터링)
 void Adminwindow::on_btnSearch_clicked()
 {
-    QString keyword = searchEdit->text().trimmed();
-    int targetColumn = 0; // "이름" (기본값)
-
-    if (searchOpt->currentText() == "전화번호") targetColumn = 1;
-    else if (searchOpt->currentText() == "ID") targetColumn = 4;
-
-    for (int i = 0; i < studentTable->rowCount(); ++i) {
-        QTableWidgetItem *item = studentTable->item(i, targetColumn);
-        bool match = (item && item->text().contains(keyword, Qt::CaseInsensitive));
-        studentTable->setRowHidden(i, !match);
-    }
+    filterTable(studentTable, searchOpt, searchEdit);
 }
 // 2. 추가 기능 (행 추가)
 void Adminwindow::on_btnAdd_clicked()
@@ -196,7 +210,7 @@ void Adminwindow::on_btnAdd_clicked()
     QStringList existingIds = studentDatabase.keys();
 
     // 2. 수집된 목록을 다이얼로그로 전달
-    Addstudentdialog dialog(existingIds, this);
+    studentdialog dialog(existingIds, this);
 
     if (dialog.exec() == QDialog::Accepted)
     {
@@ -229,7 +243,7 @@ void Adminwindow::on_btnEdit_clicked()
 
     Student s = studentDatabase[id];
 
-    Addstudentdialog dialog(QStringList(), this);
+    studentdialog dialog(QStringList(), this);
     dialog.setStudentData(s.name, s.phone, s.birth, s.id, s.pw, s.note);
 
     if (dialog.exec() == QDialog::Accepted)
@@ -378,7 +392,9 @@ void Adminwindow::refreshStudentTable()
         int row = studentTable->rowCount();
         studentTable->insertRow(row);
 
-        studentTable->setItem(row, 0, new QTableWidgetItem(s.name));
+        QTableWidgetItem *nameItem = new QTableWidgetItem(s.name);
+        nameItem->setData(Qt::UserRole, s.id); // 검색용 ID 저장
+        studentTable->setItem(row, 0, nameItem);
         studentTable->setItem(row, 1, new QTableWidgetItem(s.phone));
         studentTable->setItem(row, 2, new QTableWidgetItem(s.birth));
         studentTable->setItem(row, 3, new QTableWidgetItem(s.id));
@@ -411,20 +427,54 @@ void Adminwindow::refreshAttendanceTable()
         if (s.attendance.totalDays > 0)
             progressRate = (static_cast<double>(s.attendance.completedDays) / s.attendance.totalDays) * 100.0;
 
-        attendanceTable->setItem(row, 0, new QTableWidgetItem(s.name));
+        QTableWidgetItem *nameItem = new QTableWidgetItem(s.name);
+        nameItem->setData(Qt::UserRole, s.id); // 검색용 ID 저장
+        attendanceTable->setItem(row, 0, nameItem);
         attendanceTable->setItem(row, 1, new QTableWidgetItem(s.phone));
-        attendanceTable->setItem(row, 2, new QTableWidgetItem(QString("%1 / %2").arg(s.attendance.completedDays).arg(s.attendance.totalDays)));
-        attendanceTable->setItem(row, 3, new QTableWidgetItem(QString::number(s.attendance.present)));
-        attendanceTable->setItem(row, 4, new QTableWidgetItem(QString::number(s.attendance.late)));
-        attendanceTable->setItem(row, 5, new QTableWidgetItem(QString::number(s.attendance.early)));
-        attendanceTable->setItem(row, 6, new QTableWidgetItem(QString::number(s.attendance.out)));
-        attendanceTable->setItem(row, 7, new QTableWidgetItem(QString::number(s.attendance.abs)));
-        attendanceTable->setItem(row, 8, new QTableWidgetItem(QString::number(attendanceRate, 'f', 1) + "%"));
-        attendanceTable->setItem(row, 9, new QTableWidgetItem(QString::number(progressRate, 'f', 1) + "%"));
+        attendanceTable->setItem(row, 2, new QTableWidgetItem(s.id)); // ID 컬럼 추가
+        attendanceTable->setItem(row, 3, new QTableWidgetItem(QString("%1 / %2").arg(s.attendance.completedDays).arg(s.attendance.totalDays)));
+        attendanceTable->setItem(row, 4, new QTableWidgetItem(QString::number(s.attendance.present)));
+        attendanceTable->setItem(row, 5, new QTableWidgetItem(QString::number(s.attendance.late)));
+        attendanceTable->setItem(row, 6, new QTableWidgetItem(QString::number(s.attendance.early)));
+        attendanceTable->setItem(row, 7, new QTableWidgetItem(QString::number(s.attendance.out)));
+        attendanceTable->setItem(row, 8, new QTableWidgetItem(QString::number(s.attendance.abs)));
+        attendanceTable->setItem(row, 9, new QTableWidgetItem(QString::number(attendanceRate, 'f', 1) + "%"));
+        attendanceTable->setItem(row, 10, new QTableWidgetItem(QString::number(progressRate, 'f', 1) + "%"));
 
-        for(int col = 0; col < 10; ++col) {
+        for(int col = 0; col < 11; ++col) {
             if(attendanceTable->item(row, col))
                 attendanceTable->item(row, col)->setTextAlignment(Qt::AlignCenter);
         }
+    }
+}
+
+// 공통 검색 헬퍼 함수
+void Adminwindow::filterTable(QTableWidget *table, QComboBox *combo, QLineEdit *edit)
+{
+    QString option = combo->currentText();
+    QString keyword = edit->text().trimmed();
+
+    for (int i = 0; i < table->rowCount(); ++i) {
+        bool match = false;
+        
+        if (option == "ID") {
+            // ID는 항상 0번 컬럼(이름)의 UserRole 데이터에 숨겨져 있음
+            QTableWidgetItem *item = table->item(i, 0);
+            if (item && item->data(Qt::UserRole).toString().contains(keyword, Qt::CaseInsensitive)) {
+                match = true;
+            }
+        } else if (option == "이름") {
+            QTableWidgetItem *item = table->item(i, 0); // 두 테이블 모두 0번이 이름
+            if (item && item->text().contains(keyword, Qt::CaseInsensitive)) {
+                match = true;
+            }
+        } else if (option == "전화번호") {
+            QTableWidgetItem *item = table->item(i, 1); // 두 테이블 모두 1번이 전화번호
+            if (item && item->text().contains(keyword, Qt::CaseInsensitive)) {
+                match = true;
+            }
+        }
+        
+        table->setRowHidden(i, !match);
     }
 }

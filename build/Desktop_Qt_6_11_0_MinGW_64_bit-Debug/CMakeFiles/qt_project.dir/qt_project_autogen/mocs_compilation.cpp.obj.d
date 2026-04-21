@@ -1,7 +1,8 @@
 CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.obj: \
  C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\qt_project_autogen\mocs_compilation.cpp \
- C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\qt_project_autogen\EWIEGA46WW/moc_add_student_dialog.cpp \
- C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/add_student_dialog.h \
+ C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\qt_project_autogen\EWIEGA46WW/moc_admin_window.cpp \
+ C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/admin_window.h \
+ C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/student_dialog.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -408,12 +409,6 @@ CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qtmochelpers.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qtmocconstants.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/q20algorithm.h \
- C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\qt_project_autogen\EWIEGA46WW/moc_admin_window.cpp \
- C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/admin_window.h \
- C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/add_student_dialog.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QStackedWidget \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qstackedwidget.h \
@@ -497,4 +492,9 @@ CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QMap
+ C:/Qt/6.11.0/mingw_64/include/QtCore/QMap \
+ C:/Qt/6.11.0/mingw_64/include/QtCore/qtmochelpers.h \
+ C:/Qt/6.11.0/mingw_64/include/QtCore/qtmocconstants.h \
+ C:/Qt/6.11.0/mingw_64/include/QtCore/q20algorithm.h \
+ C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\qt_project_autogen\EWIEGA46WW/moc_student_dialog.cpp \
+ C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/student_dialog.h

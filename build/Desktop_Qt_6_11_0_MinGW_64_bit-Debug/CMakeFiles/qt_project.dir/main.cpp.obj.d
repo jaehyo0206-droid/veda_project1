@@ -1,7 +1,7 @@
 CMakeFiles/qt_project.dir/main.cpp.obj: \
  C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\main.cpp \
  C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\admin_window.h \
- C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\add_student_dialog.h \
+ C:\Users\3-10\Desktop\qt_project\veda_project1_mine\qt_project\student_dialog.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

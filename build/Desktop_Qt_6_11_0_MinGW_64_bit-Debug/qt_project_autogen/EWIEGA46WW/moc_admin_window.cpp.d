@@ -480,4 +480,4 @@ C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/build/Desktop_Qt_
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
-  C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/add_student_dialog.h
+  C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/student_dialog.h

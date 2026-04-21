@@ -2,13 +2,13 @@
     "students": [
         {
             "attendance_summary": {
-                "abs":1,
+                "abs": 1,
                 "completedDays": 2,
                 "early": 3,
                 "late": 4,
                 "out": 5,
-                "present":0,
-                "totalDays":0
+                "present": 0,
+                "totalDays": 0
             },
             "birth": "2001-01-02",
             "id": "e",
@@ -16,23 +16,6 @@
             "note": "없음",
             "phone": "010-1234-1234",
             "pw": "1"
-        },
-        {
-            "attendance_summary": {
-                "abs": 0,
-                "completedDays": 0,
-                "early": 0,
-                "late": 0,
-                "out": 0,
-                "present": 0,
-                "totalDays": 100
-            },
-            "birth": "ewqeqwe",
-            "id": "wqewqewq",
-            "name": "ewqeqw",
-            "note": "qweqweqwewq",
-            "phone": "ewqewqeqwe",
-            "pw": "ewqeqe"
         }
     ]
 }

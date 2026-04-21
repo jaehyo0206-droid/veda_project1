@@ -406,6 +406,7 @@ C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/admin_window.h
  mdp:C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonArray
  mdp:C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonDocument
  mdp:C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonObject
+ mdp:C:/Qt/6.11.0/mingw_64/include/QtCore/QMap
  mdp:C:/Qt/6.11.0/mingw_64/include/QtCore/QStringList
  mdp:C:/Qt/6.11.0/mingw_64/include/QtCore/q17memory.h
  mdp:C:/Qt/6.11.0/mingw_64/include/QtCore/q20bit.h

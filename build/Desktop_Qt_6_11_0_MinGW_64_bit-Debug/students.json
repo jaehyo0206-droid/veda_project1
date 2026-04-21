@@ -1,18 +1,38 @@
-[
-    {
-        "birth": "ewqeqwewq",
-        "id": "1",
-        "name": "1",
-        "note": "1",
-        "phone": "1234",
-        "pw": "1"
-    },
-    {
-        "birth": "2",
-        "id": "e",
-        "name": "2",
-        "note": "2",
-        "phone": "2",
-        "pw": "2"
-    }
-]
+{
+    "students": [
+        {
+            "attendance_summary": {
+                "abs":1,
+                "completedDays": 2,
+                "early": 3,
+                "late": 4,
+                "out": 5,
+                "present":0,
+                "totalDays":0
+            },
+            "birth": "2001-01-02",
+            "id": "e",
+            "name": "김철수",
+            "note": "없음",
+            "phone": "010-1234-1234",
+            "pw": "1"
+        },
+        {
+            "attendance_summary": {
+                "abs": 0,
+                "completedDays": 0,
+                "early": 0,
+                "late": 0,
+                "out": 0,
+                "present": 0,
+                "totalDays": 100
+            },
+            "birth": "ewqeqwe",
+            "id": "wqewqewq",
+            "name": "ewqeqw",
+            "note": "qweqweqwewq",
+            "phone": "ewqewqeqwe",
+            "pw": "ewqeqe"
+        }
+    ]
+}

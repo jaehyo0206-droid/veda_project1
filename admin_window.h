@@ -18,6 +18,29 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QFile>
+#include <QMap>
+
+struct AttendanceSummary {
+    int totalDays = 100;
+    int completedDays = 0;
+    int present = 0;
+    int late = 0;
+    int early = 0;
+    int out = 0;
+    int abs = 0;
+};
+
+struct Student {
+    QString id;
+    QString pw;
+    QString name;
+    QString phone;
+    QString birth;
+    QString note;
+    
+    AttendanceSummary attendance;
+};
+
 class Adminwindow : public QWidget // MainWindow를 Widget으로 변경
 {
     Q_OBJECT
@@ -42,8 +65,15 @@ private:
     void loadAttendanceData(QTableWidget *table); // 추가
     void saveData();
     void loadData();
+
+    void refreshStudentTable();
+    void refreshAttendanceTable();
+
+    QMap<QString, Student> studentDatabase;
+
     QStackedWidget *stackedWidget;
     QTableWidget *studentTable;
+    QTableWidget *attendanceTable; // 추가: 출결 테이블 멤버 변수
     QLineEdit *searchEdit;
     QComboBox *searchOpt;
 protected:

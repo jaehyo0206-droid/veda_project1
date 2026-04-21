@@ -419,6 +419,7 @@ CMakeFiles/qt_project.dir/admin_window.cpp.obj: C:/Users/3-10/Desktop/qt_project
   C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonDocument \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonObject \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QList \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QMap \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QObject \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QRect \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QSize \
@@ -939,6 +940,7 @@ CMakeFiles/qt_project.dir/main.cpp.obj: C:/Users/3-10/Desktop/qt_project/veda_pr
   C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonArray \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonDocument \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonObject \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QMap \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QStringList \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q20bit.h \
@@ -1445,6 +1447,7 @@ CMakeFiles/qt_project.dir/qt_project_autogen/mocs_compilation.cpp.obj: qt_projec
   C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonArray \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonDocument \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonObject \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QMap \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QStringList \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q20algorithm.h \
@@ -2916,6 +2919,8 @@ C:/Qt/6.11.0/mingw_64/include/QtCore/qbasictimer.h:
 C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonObject:
 
 C:/Qt/6.11.0/mingw_64/include/QtCore/QList:
+
+C:/Qt/6.11.0/mingw_64/include/QtCore/QMap:
 
 C:/Qt/6.11.0/mingw_64/include/QtCore/QObject:
 

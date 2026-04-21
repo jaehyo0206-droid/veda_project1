@@ -4,6 +4,7 @@ C:/Users/3-10/Desktop/qt_project/veda_project1_mine/qt_project/build/Desktop_Qt_
   C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonArray \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonDocument \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonObject \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QMap \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QStringList \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q20bit.h \
